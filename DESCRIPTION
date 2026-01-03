@@ -1,0 +1,36 @@
+Package: cycleTrendR
+Type: Package
+Title: Adaptive Cycle and Trend Analysis for Irregular Time Series
+Version: 0.1.0
+Authors@R: 
+    person("Pietro", "Piu", 
+           email = "pietro.piu.si@gmail.com",
+           role = c("aut", "cre"))
+Description: Provides adaptive trend estimation, cycle detection, Fourier harmonic 
+    selection, bootstrap confidence intervals, change-point detection, and 
+    rolling-origin forecasting. Supports LOESS, GAM, and GAMM models, and 
+    automatically handles irregular sampling using the Lomb–Scargle periodogram. 
+    Designed for biomedical, environmental, and engineering time-series analysis.
+License: GPL-3
+Encoding: UTF-8
+Imports:
+    blocklength,
+    fANCOVA,
+    ggplot2,
+    lomb,
+    gridExtra,
+    changepoint,
+    mgcv,
+    dplyr,
+    nortest,
+    tseries,
+    officer,
+    flextable,
+    nlme
+Suggests:
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3

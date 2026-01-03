@@ -1,0 +1,89 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# cycleTrendR
+
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/PietroPiu-labstats/cycleTrendR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/PietroPiu-labstats/cycleTrendR/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
+**cycleTrendR** provides adaptive trend estimation, cycle detection, Fourier harmonic
+selection, bootstrap confidence intervals, change-point detection, and rolling-origin
+forecasting. It supports LOESS, GAM, and GAMM models, and automatically handles
+irregular sampling using the Lomb–Scargle periodogram.
+
+The package is designed for biomedical, environmental, and engineering time-series
+applications where both trend and cyclic components must be estimated robustly.
+
+## Installation
+
+You can install the development version of cycleTrendR like so:
+
+```r
+# install.packages("devtools")
+devtools::install_github("PietroPiu-labstats/cycleTrendR")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+set.seed(1526)
+
+  dates <- seq.Date(as.Date("2020-01-01"), by = "day", length.out = 200)
+  signal <- sin(2*pi*1:200/30) + rnorm(200, 0, 0.2)
+
+library(cycleTrendR)
+
+res <- adaptive_cycle_trend_analysis(
+  signal = signal,
+  dates  = dates,
+  usefourier = TRUE,
+  trendmethod = "gam"
+)
+
+plot(res)
+
+```
+
+The output includes: Trend line, 95% bootstrap CI, Outliers, Change-points, Periodogram, Residual ACF.
+
+
+What makes cycleTrendR different?
+
+
+Works with irregular time series
+
+Automatically detects cycles
+
+Handles autocorrelation via GAMM
+
+Provides robust uncertainty estimates
+
+Produces publication-ready plots
+
+
+When should you use it?
+
+Biological assay drift correction
+
+Environmental monitoring
+
+Epidemiological seasonality
+
+Financial cycle detection
+
+Sensor data with autocorrelation
