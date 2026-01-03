@@ -1,0 +1,79 @@
+# cycleTrendR-overview
+
+``` r
+library(cycleTrendR)
+#> Warning: replacing previous import 'dplyr::combine' by 'gridExtra::combine'
+#> when loading 'cycleTrendR'
+#> Warning: replacing previous import 'dplyr::collapse' by 'nlme::collapse' when
+#> loading 'cycleTrendR'
+#> Registered S3 method overwritten by 'quantmod':
+#>   method            from
+#>   as.zoo.data.frame zoo
+set.seed(1)
+```
+
+Introduction cycleTrendR provides a unified framework for analyzing
+time-series that contain both trend and cyclic components. It supports:
+
+LOESS, GAM, and GAMM trend estimation
+
+Automatic Fourier harmonic selection (AICc/BIC)
+
+Bootstrap confidence intervals (IID or MBB)
+
+Change-point detection
+
+Lomb–Scargle periodogram for irregular sampling
+
+Rolling-origin forecasting
+
+Publication-quality ggplot2 visualizations
+
+This vignette demonstrates the main workflows using simulated data.
+
+Simulated Example Data We simulate a noisy cyclic signal with irregular
+sampling:
+
+dates \<- as.Date(“2020-01-01”) + cumsum(sample(1:3, 300, replace =
+TRUE)) signal \<- sin(2*pi*as.numeric(dates)/20) + rnorm(300, 0, 0.3)
+
+LOESS Trend + Automatic Fourier Selection res_loess \<-
+adaptive_cycle_trend_analysis( signal = signal, dates = dates,
+trendmethod = “loess”, usefourier = TRUE, auto_fourier_select = TRUE,
+nboot = 50 )
+
+res_loess$Plot$Trend
+
+GAM Trend res_gam \<- adaptive_cycle_trend_analysis( signal = signal,
+dates = dates, trendmethod = “gam”, usefourier = TRUE, nboot = 50 )
+
+res_gam$Plot$Trend
+
+GAMM Trend with Random Effects group \<- rep(letters\[1:4\], length.out
+= length(signal))
+
+res_gamm \<- adaptive_cycle_trend_analysis( signal = signal, dates =
+dates, trendmethod = “gam”, use_gamm = TRUE, group_var = “subject”,
+group_values = group, usefourier = FALSE, nboot = 20 )
+
+res_gamm$Plot$Trend
+
+Irregular Sampling + Fourier + Lomb–Scargle
+
+Irregular sampling is detected automatically and the Lomb–Scargle
+periodogram is used: res_irreg \<- adaptive_cycle_trend_analysis( signal
+= signal, dates = dates, trendmethod = “loess”, usefourier = TRUE,
+auto_fourier_select = TRUE, nboot = 50 )
+
+res_irreg$Plot$Spectrum
+
+Change-Point Detection res_loess\$ChangePoints
+
+Bootstrap Confidence Intervals
+head(res_loess$CI_{l}ower)head(res_{l}oess$CI_upper)
+
+Conclusion cycleTrendR provides a flexible and robust toolkit for
+analyzing complex time-series with trend and cyclic components,
+especially when sampling is irregular or noise levels are high. It is
+suitable for biomedical assay monitoring, environmental signals, and
+forecasting tasks.
