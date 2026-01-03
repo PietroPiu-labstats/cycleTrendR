@@ -1,3 +1,5 @@
+# cycleTrendR 0.2.0
+
 # cycleTrendR 0.1.0
 
 * Initial release of **cycleTrendR**.

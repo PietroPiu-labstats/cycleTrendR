@@ -1,7 +1,7 @@
 Package: cycleTrendR
 Type: Package
 Title: Adaptive Cycle and Trend Analysis for Irregular Time Series
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
     person("Pietro", "Piu", 
            email = "pietro.piu.si@gmail.com",
