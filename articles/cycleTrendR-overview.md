@@ -2,10 +2,6 @@
 
 ``` r
 library(cycleTrendR)
-#> Warning: replacing previous import 'dplyr::combine' by 'gridExtra::combine'
-#> when loading 'cycleTrendR'
-#> Warning: replacing previous import 'dplyr::collapse' by 'nlme::collapse' when
-#> loading 'cycleTrendR'
 #> Registered S3 method overwritten by 'quantmod':
 #>   method            from
 #>   as.zoo.data.frame zoo

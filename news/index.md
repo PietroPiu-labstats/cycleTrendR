@@ -2,6 +2,14 @@
 
 ## cycleTrendR 0.2.0
 
+- Major improvements to documentation, imports, and CRAN compliance.
+- Added full roxygen2 documentation for all parameters and return
+  values.
+- Improved NAMESPACE management with explicit `@importFrom` directives.
+- Enhanced vignette stability and reduced computational load in
+  examples.
+- Achieved full CRAN compliance: 0 errors, 0 warnings, 0 notes.
+
 ## cycleTrendR 0.1.0
 
 - Initial release of **cycleTrendR**.
@@ -14,11 +22,10 @@
   - Bootstrap confidence intervals (IID and MBB)
   - Change-point detection
   - Rolling-origin forecasting
-- Added publication-quality ggplot2 visualizations for:
+- Added publication-quality ggplot2 visualizations:
   - Trend + CI
   - Periodogram
   - Residual ACF
   - Diagnostics and summary tables
 - Added a comprehensive vignette: *cycleTrendR-overview*.
 - Added README with installation instructions and examples.
-- Ensured full CRAN compliance: 0 errors, 0 warnings, 0 notes.

@@ -291,22 +291,17 @@ automatically handles irregular sampling using the Lomb Scargle periodogram.</p>
 <span class="r-in"><span><span class="va">dates</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-01-01"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html" class="external-link">cumsum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fl">300</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">signal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html" class="external-link">sin</a></span><span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="va">pi</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">dates</span><span class="op">)</span><span class="op">/</span><span class="fl">20</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">300</span>, <span class="fl">0</span>, <span class="fl">0.3</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># GAM trend with Fourier harmonics</span></span></span>
 <span class="r-in"><span><span class="va">res_gam</span> <span class="op">&lt;-</span> <span class="fu">adaptive_cycle_trend_analysis</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  signal <span class="op">=</span> <span class="va">signal</span>,</span></span>
 <span class="r-in"><span>  dates <span class="op">=</span> <span class="va">dates</span>,</span></span>
 <span class="r-in"><span>  usefourier <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  trendmethod <span class="op">=</span> <span class="st">"gam"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">dates</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-01-01"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html" class="external-link">cumsum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fl">150</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">signal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html" class="external-link">sin</a></span><span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="va">pi</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">dates</span><span class="op">)</span><span class="op">/</span><span class="fl">25</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">150</span>, <span class="fl">0</span>, <span class="fl">0.3</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">group</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, length.out <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">signal</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># GAMM trend with random intercepts</span></span></span>
 <span class="r-in"><span><span class="va">res_gamm</span> <span class="op">&lt;-</span> <span class="fu">adaptive_cycle_trend_analysis</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  signal <span class="op">=</span> <span class="va">signal</span>,</span></span>
 <span class="r-in"><span>  dates <span class="op">=</span> <span class="va">dates</span>,</span></span>
@@ -314,29 +309,27 @@ automatically handles irregular sampling using the Lomb Scargle periodogram.</p>
 <span class="r-in"><span>  use_gamm <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  group_var <span class="op">=</span> <span class="st">"subject"</span>,</span></span>
 <span class="r-in"><span>  group_values <span class="op">=</span> <span class="va">group</span>,</span></span>
-<span class="r-in"><span>  usefourier <span class="op">=</span> <span class="cn">FALSE</span>,   <span class="co"># keeps example fast</span></span></span>
-<span class="r-in"><span>  nboot <span class="op">=</span> <span class="fl">20</span>            <span class="co"># reduced for CRAN</span></span></span>
+<span class="r-in"><span>  usefourier <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>  nboot <span class="op">=</span> <span class="fl">20</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">res_gamm</span><span class="op">$</span><span class="va">Plot</span><span class="op">$</span><span class="va">Trend</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">dates</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-01-01"</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span><span class="op">:</span><span class="fl">120</span></span></span>
 <span class="r-in"><span><span class="va">signal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html" class="external-link">sin</a></span><span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="va">pi</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">120</span><span class="op">)</span><span class="op">/</span><span class="fl">20</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">120</span>, <span class="fl">0</span>, <span class="fl">0.2</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># LOESS trend with automatic Fourier selection</span></span></span>
 <span class="r-in"><span><span class="va">res_loess</span> <span class="op">&lt;-</span> <span class="fu">adaptive_cycle_trend_analysis</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  signal <span class="op">=</span> <span class="va">signal</span>,</span></span>
 <span class="r-in"><span>  dates <span class="op">=</span> <span class="va">dates</span>,</span></span>
 <span class="r-in"><span>  trendmethod <span class="op">=</span> <span class="st">"loess"</span>,</span></span>
 <span class="r-in"><span>  usefourier <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  auto_fourier_select <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
-<span class="r-in"><span>  nboot <span class="op">=</span> <span class="fl">50</span>   <span class="co"># reduced for speed in examples</span></span></span>
+<span class="r-in"><span>  nboot <span class="op">=</span> <span class="fl">50</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">res_loess</span><span class="op">$</span><span class="va">Plot</span><span class="op">$</span><span class="va">Trend</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

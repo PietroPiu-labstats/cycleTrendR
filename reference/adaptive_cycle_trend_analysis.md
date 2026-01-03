@@ -256,22 +256,17 @@ set.seed(1)
 dates <- as.Date("2020-01-01") + cumsum(sample(1:3, 300, replace = TRUE))
 signal <- sin(2*pi*as.numeric(dates)/20) + rnorm(300, 0, 0.3)
 
-# GAM trend with Fourier harmonics
 res_gam <- adaptive_cycle_trend_analysis(
   signal = signal,
   dates = dates,
   usefourier = TRUE,
   trendmethod = "gam"
 )
-} # }
 
-if (FALSE) { # \dontrun{
-set.seed(1)
 dates <- as.Date("2020-01-01") + cumsum(sample(1:3, 150, replace = TRUE))
 signal <- sin(2*pi*as.numeric(dates)/25) + rnorm(150, 0, 0.3)
 group  <- rep(letters[1:4], length.out = length(signal))
 
-# GAMM trend with random intercepts
 res_gamm <- adaptive_cycle_trend_analysis(
   signal = signal,
   dates = dates,
@@ -279,25 +274,22 @@ res_gamm <- adaptive_cycle_trend_analysis(
   use_gamm = TRUE,
   group_var = "subject",
   group_values = group,
-  usefourier = FALSE,   # keeps example fast
-  nboot = 20            # reduced for CRAN
+  usefourier = FALSE,
+  nboot = 20
 )
 
 plot(res_gamm$Plot$Trend)
-} # }
-if (FALSE) { # \dontrun{
-set.seed(1)
+
 dates <- as.Date("2020-01-01") + 1:120
 signal <- sin(2*pi*(1:120)/20) + rnorm(120, 0, 0.2)
 
-# LOESS trend with automatic Fourier selection
 res_loess <- adaptive_cycle_trend_analysis(
   signal = signal,
   dates = dates,
   trendmethod = "loess",
   usefourier = TRUE,
   auto_fourier_select = TRUE,
-  nboot = 50   # reduced for speed in examples
+  nboot = 50
 )
 
 plot(res_loess$Plot$Trend)
