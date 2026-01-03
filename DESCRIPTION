@@ -25,10 +25,11 @@ Imports:
     mgcv,
     dplyr,
     nortest,
-    tseries,
     officer,
     flextable,
-    nlme
+    nlme,
+    magrittr,
+    tseries
 Suggests:
     testthat,
     knitr,
