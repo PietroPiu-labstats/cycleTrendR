@@ -6,6 +6,8 @@ Authors@R:
     person("Pietro", "Piu", 
            email = "pietro.piu.si@gmail.com",
            role = c("aut", "cre"))
+URL: https://PietroPiu-labstats.github.io/cycleTrendR,
+    https://github.com/PietroPiu-labstats/cycleTrendR
 Description: Provides adaptive trend estimation, cycle detection, Fourier harmonic 
     selection, bootstrap confidence intervals, change-point detection, and 
     rolling-origin forecasting. Supports LOESS, GAM, and GAMM models, and 
