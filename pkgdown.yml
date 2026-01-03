@@ -3,7 +3,7 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   cycleTrendR-overview: cycleTrendR-overview.html
-last_built: 2026-01-03T18:54Z
+last_built: 2026-01-03T19:54Z
 urls:
   reference: https://PietroPiu-labstats.github.io/cycleTrendR/reference
   article: https://PietroPiu-labstats.github.io/cycleTrendR/articles
