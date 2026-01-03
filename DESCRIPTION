@@ -13,7 +13,7 @@ Description: Provides adaptive trend estimation, cycle detection, Fourier harmon
     rolling-origin forecasting. Supports LOESS, GAM, and GAMM models, and 
     automatically handles irregular sampling using the Lomb–Scargle periodogram. 
     Designed for biomedical, environmental, and engineering time-series analysis.
-License: GPL-3
+License: GPL-3 | file LICENSE
 Encoding: UTF-8
 Imports:
     blocklength,
