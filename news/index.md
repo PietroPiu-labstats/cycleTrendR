@@ -4,7 +4,7 @@
 
 - Initial release of **cycleTrendR**.
 - Added the main function
-  [`adaptive_cycle_trend_analysis()`](../reference/adaptive_cycle_trend_analysis.md)
+  [`adaptive_cycle_trend_analysis()`](https://PietroPiu-labstats.github.io/cycleTrendR/reference/adaptive_cycle_trend_analysis.md)
   supporting:
   - LOESS, GAM, and GAMM trend estimation
   - Automatic Fourier harmonic selection (AICc/BIC)

@@ -2,4 +2,4 @@
 
 ### All vignettes
 
-- [cycleTrendR-overview](cycleTrendR-overview.md):
+- [cycleTrendR-overview](https://PietroPiu-labstats.github.io/cycleTrendR/articles/cycleTrendR-overview.md):
