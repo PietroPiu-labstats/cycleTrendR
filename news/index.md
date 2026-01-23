@@ -2,6 +2,8 @@
 
 ## cycleTrendR 0.2.0
 
+CRAN release: 2026-01-22
+
 - Major improvements to documentation, imports, and CRAN compliance.
 - Added full roxygen2 documentation for all parameters and return
   values.
