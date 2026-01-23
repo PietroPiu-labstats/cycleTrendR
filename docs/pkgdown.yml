@@ -1,0 +1,9 @@
+pandoc: 3.6.3
+pkgdown: 2.2.0
+pkgdown_sha: ~
+articles:
+  cycleTrendR-overview: cycleTrendR-overview.html
+last_built: 2026-01-23T22:30Z
+urls:
+  reference: https://pietropiu-labstats.github.io/cycleTrendR/reference
+  article: https://pietropiu-labstats.github.io/cycleTrendR/articles
