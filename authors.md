@@ -7,7 +7,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/PietroPiu-labstats/cycleTrendR/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/PietroPiu-labstats/cycleTrendR/blob/v0.3.0/DESCRIPTION)
 
 Piu P (2026). *cycleTrendR: Adaptive Cycle and Trend Analysis for
 Irregular Time Series*. R package version 0.2.0,
